@@ -1,9 +1,24 @@
+const greetText = document.querySelector("#greet-text");
 const nextButton = document.querySelector("#next-button");
 const qIndexDisplay = document.querySelector("#question-index");
-const loadingText = document.querySelector("#loading-text");
-
+const resultsContainer = document.querySelector("#results-container");
+const title = document.querySelector("h1");
 const questionContainer = document.querySelector(".question-container");
 
+window.onload = function () {
+  setTimeout(() => {
+    greetText.style.opacity = 0;
+    greetText.style.top = "-100px";
+
+    setTimeout(() => {
+      nextButton.style.opacity = 1;
+      title.style.opacity = 1;
+      questionContainer.style.opacity = 1;
+      qIndexDisplay.style.opacity = 1;
+      greetText.style.display = "none";
+    }, 800);
+  }, 1000);
+};
 const questions = [
   //Second question
   `<h3>TTPD vélemények röviden?</h3>
@@ -94,7 +109,7 @@ const questions = [
     </div>`,
 
   //Ninth question
-  `<h3></h3>
+  `<h3>Mennyire vagy nagy swiftie?</h3>
   <hr>
     <textarea name="ninthQ" id="ninthQ" cols="30" rows="10"></textarea>`,
 
@@ -150,8 +165,11 @@ nextButton.addEventListener("click", () => {
   questionIndex++;
   if (questionIndex == 13) qIndexDisplay.style.opacity = 0;
   else if (questionIndex == 14) {
-    loadingText.style.display = "block";
-    sendEmail();
+    resultsContainer.style.display = "block";
+    title.style.display = "none";
+    questionContainer.style.display = "none";
+    nextButton.style.display = "none";
+    showResults();
   } else qIndexDisplay.innerHTML = questionIndex + "/12";
 
   //Fade effect
@@ -168,7 +186,7 @@ nextButton.addEventListener("click", () => {
           questionContainer.style.opacity = "1";
           nextButton.style.opacity = "1";
           initializeOptions();
-        }, 1700);
+        }, 1500);
       } else {
         questionContainer.innerHTML = questions[questionIndex - 2];
         initializeOptions();
@@ -179,8 +197,6 @@ nextButton.addEventListener("click", () => {
       }
     }
   }, 200);
-
-  console.log(result);
 });
 
 function initializeOptions() {
@@ -198,7 +214,7 @@ function initializeOptions() {
 
     textField.addEventListener("change", function () {
       answer = this.value;
-      result[questionIndex] = `${questionIndex}: ${answer}`;
+      result[questionIndex] = answer;
     });
   }
 
@@ -213,11 +229,24 @@ function initializeOptions() {
       option.classList.add("selected-option");
 
       answer = option.querySelector("p").textContent;
-      result[questionIndex] = `${questionIndex}: ${answer}`;
+      result[questionIndex] = answer;
     });
   });
 }
 
 initializeOptions();
 
-function sendEmail() {}
+function showResults() {
+  const resultsContainer = document.getElementById("results-container");
+
+  for (let i = 1; i < 14; i++) {
+    const answer = document.createElement("p");
+    if (result[i] == undefined)
+      answer.innerHTML = "Hékás ide nem írtál semmit :D";
+    else answer.innerHTML = i + ". " + result[i];
+    resultsContainer.appendChild(answer);
+
+    const line = document.createElement("hr");
+    resultsContainer.appendChild(line);
+  }
+}
