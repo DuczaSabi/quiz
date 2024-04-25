@@ -1,0 +1,149 @@
+body {
+  background: linear-gradient(
+    45deg,
+    rgb(34, 255, 248),
+    rgb(255, 98, 0),
+    rgb(255, 213, 0)
+  );
+  background-size: 600% 600%;
+  background-repeat: no-repeat;
+  animation: backgroundAnim 15s ease infinite;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+@keyframes backgroundAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-size: 4.5vw;
+}
+
+h2 {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  font-size: 3.5vw;
+}
+
+h3 {
+  width: 100%;
+  font-size: 3.5vw;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 40%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.question-container {
+  margin: auto;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: ease-in-out 0.2s;
+}
+
+.question-container textarea {
+  padding: 7px;
+  border-radius: 15px;
+  background-color: rgb(253, 219, 187);
+}
+
+.question-option {
+  width: 30%;
+  max-width: 300px;
+  margin: 2% 0;
+  padding: 1%;
+  transition: ease-in-out 0.2s;
+  border-radius: 15px;
+}
+
+.question-option img {
+  margin: 0;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 95%;
+  transition: ease-in-out 0.2s;
+}
+
+.question-option p {
+  font-size: 3vw;
+  margin: 0;
+  height: auto;
+  padding: 0 5px;
+  transition: ease-in-out 0.2s;
+}
+
+.selected-option {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.selected-option img {
+  transform: scale(0.9);
+}
+
+.selected-option p {
+  color: white;
+}
+
+#next-button {
+  width: 50%;
+  padding: 5px;
+  border: none;
+  background-color: rgb(253, 219, 187);
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+
+#loading-text {
+  display: none;
+  position: fixed;
+  width: 100%;
+  top: 25%;
+  left: 0;
+}
+
+#loading-text p {
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  margin: auto;
+  font-size: 7vw;
+  color: #ffe5c8;
+}
+
+.loader {
+  margin: auto;
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #ffe5c8 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #ffe5c8);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: spinner 1s infinite linear;
+}
+@keyframes spinner {
+  100% {
+    transform: rotate(1turn);
+  }
+}
