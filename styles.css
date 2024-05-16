@@ -149,3 +149,15 @@ hr {
   border-radius: none;
   margin: 0;
 }
+
+/* Ghosted */
+#ghosted-container {
+  padding: 5px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#ghosted-container p {
+  font-size: 900%;
+}

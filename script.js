@@ -21,140 +21,52 @@ window.onload = function () {
 };
 const questions = [
   //Second question
-  `<h3>TTPD vélemények röviden?</h3>
+  `<h3>Tudom elég elfoglalt személy vagy meg nincs mobilneted stb. De megkérdezhetem kerek perec hogy miért tart néha napokba válaszolni? (Nem akarlak itt számon kérni csak mivel alig ismerlek és a hétköznapokban máshogy nem beszélünk így nem tudom mennyire megszokott ez nálad.)</h3>
+  <hr>
+  <div class="question-option">
+      <p>Ezer dolgom van nem tudok minden nap random embereknek irogatni.</p>
+  </div>
+    <div class="question-option">
+      <p>Aaah bocsi mindig elfelejtem hogy te létezel.</p>
+  </div>
+    <div class="question-option">
+      <p>Nem vagyok rád valami kíváncsi úgyhogy most ghostollak csak nem esik le neked.</p>
+  </div>
+  <div class="question-option">
+      <p>Igazság szerint magam sem tudom de majd ha kedvem szottyan vissza írok.</p>
+  </div>`,
+
+  //Third question
+  `<h3>Hogy sikerült az info érettségi?</h3>
   <hr>
     <textarea name="secondQ" id="secondQ" cols="30" rows="10"></textarea>`,
 
-  //Third question
-  `<h3>Ide nem kell kérdés.</h3>
-  <hr>
-  <div class="question-option">
-        <p>Tükörtojás</p>
-    </div>
-      <div class="question-option">
-        <p>Rántotta</p>
-    </div>
-      <div class="question-option">
-        <p>Fúj tojás</p>
-    </div>`,
-
   //Fourth question
-  `<h3>Kedvenc film kategória</h3>
+  `<h3>Melyiket várod jobban?</h3>
   <hr>
   <div class="question-option">
-        <img src="Images/misc/akcio.webp" alt="">
-        <p>Akció</p>
-    </div>
-      <div class="question-option">
-        <img src="Images/misc/horror.webp" alt="">
-        <p>Horror</p>
-    </div>
-      <div class="question-option">
-        <img src="Images/misc/vigjatek.webp" alt="">
-        <p>Vígjáték</p>
-    </div>
-      <div class="question-option">
-        <img src="Images/misc/animacio.webp" alt="">
-        <p>Animáció</p>
+        <img src="Images/debuttv.jpg" alt="">
+        <p>Debut TV 🎸</p>
     </div>
     <div class="question-option">
-        <img src="Images/misc/nemtom.webp" alt="">
-        <p>Tudja fene nem nézek filmeket</p>
+        <img src="Images/reptv.jpg" alt="">
+        <p>Reputation TV 🐍</p>
     </div>`,
 
   //Fifth question
-  `<h3>Nem gond hogy beloptam a kvízes ötletedet?👉👈</h3>
+  `<h3>Na figyu megvannak még a snackek amiket a Margit-szigetre vittem.
+  <br>Nekem ez túl sok és kéne valaki aki segítene elpuszítani őket.
+  <br>Ha véletlen Herceghalmon járok valamelyik nap, akkor lenne kedved besegíteni?</h3>
   <hr>
   <div class="question-option">
-        <p>De igen! Lehetnél kreatívabb te nokedli!😡</p>
+        <p>Bocsi, nincs valami sok kedvem találkozni.</p>
     </div>
     <div class="question-option">
-        <p>Semmi gond, habár nem annyira jó mint az enyém, de azért tetszik.</p>
+        <p>Persze, csak szólj róla előre hogy fel legyek készülve.</p>
+    </div>
+    <div class="question-option">
+        <p>Hát ez az ajánlat nem nagyon vonz, de valami más programhoz szívesen csatlakozom.</p>
     </div>`,
-
-  //Sixth question
-  `<h3>Ha egy krumpli lennél hogyan szeretnéd hogy megsüssenek?</h3>
-  <hr>
-  <div class="question-option">
-        <p>Vajjal és friss fűszerekkel, hogy ízletesen piruljak.</p>
-    </div>
-      <div class="question-option">
-        <p>Sültkrumpli módon, hogy ropogós héjam és puha belsőm legyen.</p>
-    </div>
-      <div class="question-option">
-        <p>Fűszeres köntösben, hogy pikáns ízű legyek.</p>
-    </div>
-      <div class="question-option">
-        <p>Alufóliában, hogy egyenletesen süssenek át.</p>
-    </div>
-    <div class="question-option">
-        <p>Ember te jól vagy?</p>
-    </div>`,
-
-  //Seventh question
-  `<h3>Hogy tetszett a 'Swiftie Nights' buli?</h3>
-  <hr>
-  <textarea name="seventhQ" id="seventhQ" cols="30" rows="10"></textarea>`,
-
-  //Eighth question
-  `<h3>Ha válszthatnál bármit, tanulnál másik nyelvet, vagy tetszik a francia?</h3>
-  <hr>
-    <div class="question-option">
-        <img src="Images/misc/nyelvek.webp" alt="">
-        <p>Választanék mást</p>
-    </div>
-    <div class="question-option">
-        <img src="Images/misc/franc.webp" alt="">
-        <p>Baguette 🥖</p>
-    </div>`,
-
-  //Ninth question
-  `<h3>Mennyire vagy nagy swiftie?</h3>
-  <hr>
-    <textarea name="ninthQ" id="ninthQ" cols="30" rows="10"></textarea>`,
-
-  //Tenth question
-  `<h3>Melyik volt előbb, a tyúk vagy a tojás?</h3>
-  <hr>
-  <div class="question-option">
-        <p>Tyúk</p>
-    </div>
-      <div class="question-option">
-        <p>Tojás</p>
-    </div>
-      <div class="question-option">
-        <p>Nyilván a kakas</p>
-    </div>`,
-
-  //Eleventh question
-  `<h3>Voltál már / fogsz menni az Erar Tour-ra?</h3>
-  <hr>
-  <div class="question-option">
-        <img src="Images/misc/sad.webp" alt="">
-        <p>Nope</p>
-    </div>
-    <div class="question-option">
-        <img src="Images/misc/happy.webp" alt="">
-        <p>Yes whale!</p>
-    </div>`,
-
-  //Twelfth question
-  `<h3>Tetszett a katkötő amit tőlem kaptál?</h3>
-  <hr>
-  <div class="question-option">
-        <p>Igen</p>
-    </div>
-    <div class="question-option">
-        <p>Persze</p>
-    </div>
-    <div class="question-option">
-        <p>Nagyooon!</p>
-    </div>`,
-
-  //Bonus question
-  `<h3>Najó, elmondhatod az őszinte véleményed itten.</h3>
-  <hr>
-  <textarea name="bonusQ" id="bonusQ" cols="30" rows="10"></textarea>`,
 ];
 
 let questionIndex = 1;
@@ -163,52 +75,51 @@ let result = {};
 nextButton.addEventListener("click", () => {
   nextButton.disabled = true;
   questionIndex++;
-  if (questionIndex == 13) qIndexDisplay.style.opacity = 0;
-  else if (questionIndex == 14) {
+
+  //Ghosted
+  if (
+    result[2] ==
+    "Nem vagyok rád valami kíváncsi úgyhogy most ghostollak csak nem esik le neked."
+  ) {
+    qIndexDisplay.style.opacity = 0;
+    resultsContainer.style.display = "block";
+    title.style.display = "none";
+    questionContainer.style.display = "none";
+    nextButton.style.display = "none";
+    ghosted();
+    console.log("ghosted");
+  }
+
+  if (questionIndex == 6) {
+    qIndexDisplay.style.opacity = 0;
     resultsContainer.style.display = "block";
     title.style.display = "none";
     questionContainer.style.display = "none";
     nextButton.style.display = "none";
     showResults();
-  } else qIndexDisplay.innerHTML = questionIndex + "/12";
+  } else qIndexDisplay.innerHTML = questionIndex + "/6";
 
   //Fade effect
   questionContainer.style.opacity = "0";
   nextButton.style.opacity = "0";
   setTimeout(() => {
     if (questionIndex <= questions.length + 1) {
-      if (questionIndex === 7) {
-        questionContainer.innerHTML = "<h3>Szingli vagy?</h3><hr>";
+      questionContainer.innerHTML = questions[questionIndex - 2];
+      initializeOptions();
+      setTimeout(() => {
         questionContainer.style.opacity = "1";
-
-        setTimeout(() => {
-          questionContainer.innerHTML = questions[questionIndex - 2];
-          questionContainer.style.opacity = "1";
-          nextButton.style.opacity = "1";
-          initializeOptions();
-        }, 1500);
-      } else {
-        questionContainer.innerHTML = questions[questionIndex - 2];
-        initializeOptions();
-        setTimeout(() => {
-          questionContainer.style.opacity = "1";
-          nextButton.style.opacity = "1";
-        }, 100);
-      }
+        nextButton.style.opacity = "1";
+      }, 100);
     }
   }, 200);
+  console.log(result);
 });
 
 function initializeOptions() {
   const questionOptions = document.querySelectorAll(".question-option");
   let answer = "";
 
-  if (
-    questionIndex == 2 ||
-    questionIndex == 7 ||
-    questionIndex == 9 ||
-    questionIndex == 13
-  ) {
+  if (questionIndex == 3) {
     const textField = questionContainer.querySelector("textarea");
     nextButton.disabled = false;
 
@@ -239,7 +150,7 @@ initializeOptions();
 function showResults() {
   const resultsContainer = document.getElementById("results-container");
 
-  for (let i = 1; i < 14; i++) {
+  for (let i = 1; i < 6; i++) {
     const answer = document.createElement("p");
     if (result[i] == undefined)
       answer.innerHTML = "Hékás ide nem írtál semmit :D";
@@ -249,4 +160,9 @@ function showResults() {
     const line = document.createElement("hr");
     resultsContainer.appendChild(line);
   }
+}
+
+function ghosted() {
+  const ghostedContainer = document.getElementById("ghosted-container");
+  ghostedContainer.style.display = "flex";
 }
