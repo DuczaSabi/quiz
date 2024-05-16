@@ -97,7 +97,7 @@ nextButton.addEventListener("click", () => {
     questionContainer.style.display = "none";
     nextButton.style.display = "none";
     showResults();
-  } else qIndexDisplay.innerHTML = questionIndex + "/6";
+  } else qIndexDisplay.innerHTML = questionIndex + "/5";
 
   //Fade effect
   questionContainer.style.opacity = "0";
