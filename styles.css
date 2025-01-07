@@ -13,6 +13,7 @@ body {
   padding-top: 5px;
   padding-bottom: 20px;
   user-select: none;
+  height: 100vh;
 }
 
 @keyframes backgroundAnim {
@@ -120,6 +121,10 @@ hr {
   color: white;
 }
 
+.question-image {
+  width: 70%;
+}
+
 #next-button {
   opacity: 0;
   width: 50%;
@@ -150,14 +155,6 @@ hr {
   margin: 0;
 }
 
-/* Ghosted */
-#ghosted-container {
-  padding: 5px;
+#question-index {
   display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-#ghosted-container p {
-  font-size: 900%;
 }

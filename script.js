@@ -21,51 +21,62 @@ window.onload = function () {
 };
 const questions = [
   //Second question
-  `<h3>Tudom elég elfoglalt személy vagy meg nincs mobilneted stb. De megkérdezhetem kerek perec hogy miért tart néha napokba válaszolni? (Nem akarlak itt számon kérni csak mivel alig ismerlek és a hétköznapokban máshogy nem beszélünk így nem tudom mennyire megszokott ez nálad.)</h3>
+  `<h3>Az alábbi filmek közül melyeket láttad?</h3>
   <hr>
   <div class="question-option">
-      <p>Ezer dolgom van nem tudok minden nap random embereknek irogatni.</p>
-  </div>
-    <div class="question-option">
-      <p>Aaah bocsi mindig elfelejtem hogy te létezel.</p>
-  </div>
-    <div class="question-option">
-      <p>Nem vagyok rád valami kíváncsi úgyhogy most ghostollak csak nem esik le neked.</p>
+      <img src="Images/blended.png">
+      <p>Kavarás</p>
   </div>
   <div class="question-option">
-      <p>Igazság szerint magam sem tudom de majd ha kedvem szottyan vissza írok.</p>
+      <img src="Images/apadrautok.png">
+      <p>Apádra ütök</p>
+  </div>
+  <div class="question-option">
+      <img src="Images/megint17.jpg">
+      <p>Megint 17</p>
+  </div>
+  <div class="question-option">
+      <img src="Images/nekem8.png">
+      <p>Nekem 8</p>
+  </div>
+  <div class="question-option">
+      <img src="Images/noi szervek.jpg">
+      <p>Női szervek</p>
   </div>`,
 
   //Third question
-  `<h3>Hogy sikerült az info érettségi?</h3>
-  <hr>
-    <textarea name="secondQ" id="secondQ" cols="30" rows="10"></textarea>`,
-
-  //Fourth question
-  `<h3>Melyiket várod jobban?</h3>
+  `<h3>Melyik megy először?</h3>
   <hr>
   <div class="question-option">
-        <img src="Images/debuttv.jpg" alt="">
-        <p>Debut TV 🎸</p>
+        <img src="Images/tej.png" alt="">
+        <p>Tej</p>
     </div>
     <div class="question-option">
-        <img src="Images/reptv.jpg" alt="">
-        <p>Reputation TV 🐍</p>
+        <img src="Images/muzli.png" alt="">
+        <p>Müzli</p>
+    </div>`,
+
+  //Fourth question
+  `<h3>Hawaii pizza?</h3>
+  <hr>
+  <div class="question-option">
+        <p>Igeeeen</p>
+    </div>
+    <div class="question-option">
+        <p>Ew</p>
     </div>`,
 
   //Fifth question
-  `<h3>Na figyu megvannak még a snackek amiket a Margit-szigetre vittem.
-  <br>Nekem ez túl sok és kéne valaki aki segítene elpuszítani őket.
-  <br>Ha véletlen Herceghalmon járok valamelyik nap, akkor lenne kedved besegíteni?</h3>
+  `<h3>Milyen napod volt?</h3>
   <hr>
   <div class="question-option">
-        <p>Bocsi, nincs valami sok kedvem találkozni.</p>
+        <p></p>
     </div>
     <div class="question-option">
-        <p>Persze, csak szólj róla előre hogy fel legyek készülve.</p>
+        <p></p>
     </div>
     <div class="question-option">
-        <p>Hát ez az ajánlat nem nagyon vonz, de valami más programhoz szívesen csatlakozom.</p>
+        <p></p>
     </div>`,
 ];
 
@@ -75,20 +86,6 @@ let result = {};
 nextButton.addEventListener("click", () => {
   nextButton.disabled = true;
   questionIndex++;
-
-  //Ghosted
-  if (
-    result[2] ==
-    "Nem vagyok rád valami kíváncsi úgyhogy most ghostollak csak nem esik le neked."
-  ) {
-    qIndexDisplay.style.opacity = 0;
-    resultsContainer.style.display = "block";
-    title.style.display = "none";
-    questionContainer.style.display = "none";
-    nextButton.style.display = "none";
-    ghosted();
-    console.log("ghosted");
-  }
 
   if (questionIndex == 6) {
     qIndexDisplay.style.opacity = 0;
@@ -119,30 +116,59 @@ function initializeOptions() {
   const questionOptions = document.querySelectorAll(".question-option");
   let answer = "";
 
-  if (questionIndex == 3) {
-    const textField = questionContainer.querySelector("textarea");
-    nextButton.disabled = false;
+  if (questionIndex == 2) {
+    let selectedAnswers = [];
 
-    textField.addEventListener("change", function () {
+    questionOptions.forEach(function (option) {
+      option.addEventListener("click", function () {
+        const optionText = option.querySelector("p").textContent;
+
+        if (option.classList.contains("selected-option")) {
+          option.classList.remove("selected-option");
+          selectedAnswers = selectedAnswers.filter(
+            (item) => item !== optionText
+          );
+        } else {
+          option.classList.add("selected-option");
+          selectedAnswers.push(optionText);
+        }
+
+        result[questionIndex] = selectedAnswers;
+
+        // Enable the next button only if at least one option is selected
+        nextButton.disabled = selectedAnswers.length === 0;
+      });
+    });
+  } else if (questionIndex == 5) {
+    const textField = document.createElement("textarea");
+    textField.name = "fifthQ";
+    textField.id = "fifthQ";
+    textField.cols = 30;
+    textField.rows = 10;
+
+    questionContainer.appendChild(textField);
+    nextButton.disabled = true;
+
+    textField.addEventListener("input", function () {
       answer = this.value;
       result[questionIndex] = answer;
+      nextButton.disabled = answer.trim() === "";
+    });
+  } else {
+    questionOptions.forEach(function (option) {
+      option.addEventListener("click", function () {
+        nextButton.disabled = false;
+
+        questionOptions.forEach(function (opt) {
+          opt.classList.remove("selected-option");
+        });
+        option.classList.add("selected-option");
+
+        answer = option.querySelector("p").textContent;
+        result[questionIndex] = answer;
+      });
     });
   }
-
-  questionOptions.forEach(function (option) {
-    option.addEventListener("click", function () {
-      nextButton.disabled = false;
-
-      questionOptions.forEach(function (opt) {
-        //Add class selected-option
-        opt.classList.remove("selected-option");
-      });
-      option.classList.add("selected-option");
-
-      answer = option.querySelector("p").textContent;
-      result[questionIndex] = answer;
-    });
-  });
 }
 
 initializeOptions();
@@ -153,16 +179,12 @@ function showResults() {
   for (let i = 1; i < 6; i++) {
     const answer = document.createElement("p");
     if (result[i] == undefined)
-      answer.innerHTML = "Hékás ide nem írtál semmit :D";
-    else answer.innerHTML = i + ". " + result[i];
+      if (i == 1) answer.innerHTML = "";
+      else answer.innerHTML = "Hékás ide nem írtál semmit :D";
+    else answer.innerHTML = result[i];
     resultsContainer.appendChild(answer);
 
     const line = document.createElement("hr");
     resultsContainer.appendChild(line);
   }
-}
-
-function ghosted() {
-  const ghostedContainer = document.getElementById("ghosted-container");
-  ghostedContainer.style.display = "flex";
 }
