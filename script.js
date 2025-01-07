@@ -67,7 +67,7 @@ const questions = [
     </div>`,
 
   //Fifth question
-  `<h3>Milyen napod volt?</h3>
+  `<h3>Milyen napod volt? (Csak röviden, majd kifejtheted hangüziben😘)</h3>
   <hr>
   <div class="question-option">
         <p></p>
